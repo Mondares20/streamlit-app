@@ -40,39 +40,63 @@ elif page == "Registration":
 # ----------------- DATA PAGE -----------------
 elif page == "Data":
     st.header("Student Data Table")
-    # Sample data
+    
+ # Realistic student data
     data = {
-        "Name": ["Ashley","Christian","Jocel"],
-        "Age": [20,21,22],
-        "Gender": ["Female","Male","Other"],
-        "Email": ["a@email.com","b@email.com","c@email.com"],
-        "Year Level": [1,2,3]
-    }
-    df = pd.DataFrame(data)
-    st.dataframe(df)        # Component 1
-    st.table(df)            # Component 2
-    st.metric("Total Students", len(df))  # Component 3
-    st.line_chart(df["Age"])  # Component 4
-    st.bar_chart(df["Year Level"])  # Component 5
+    "Name": ["Ashley Abrantes", "Christian Basilan", "Jocel Pasko", "Ej Ellegue", "Diana Gaviola"],
+    "Email": [
+        "2024-200314@rtu.edu.ph",
+        "2024-200201@rtu.edu.ph",
+        "2024-200305@rtu.edu.ph",
+        "2024-200110@rtu.edu.ph",
+        "2022-200402@rtu.edu.ph"
+    ],
+    "Year Level": [2, 2, 2, 2, 2],
+    "Gender": ["Female", "Male", "Female", "Male", "Female"],
+    "Hobbies": [
+        "Coding, Reading",
+        "Gaming, Reading",
+        "Coding, Gaming",
+        "Sports, Gaming",
+        "Reading, Art"
+    ],
+    "Favorite Color": ["#FF5733", "#33FF57", "#3357FF", "#33FF57", "#FF33A1"],
+    "Birthdate": ["2002-10-13", "2002-06-18", "2005-10-30", "2003-03-15", "2004-08-22"]
+}
+
+df = pd.DataFrame(data)
+st.table(df)
+st.subheader("Summary Metrics")
+st.metric("Total Students", len(df))
+st.bar_chart(df["Year Level"])
 
 # ----------------- FUN COMPONENTS -----------------
 elif page == "Fun Components":
-    st.header("Fun Streamlit UI")
-    st.progress(50)          # 6
-    st.spinner("Loading...")  # 7
-    st.balloons()             # 8
-    st.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")  # 9
-    st.video("https://www.w3schools.com/html/mov_bbb.mp4")  # 10
-    st.checkbox("Check me!")   # 11
-    st.radio("Pick one", ["Option A","Option B"])  # 12
-    st.select_slider("Slide me", options=[1,2,3,4,5])  # 13
-    st.text_area("Write something")  # 14
-    st.date_input("Pick a date")  # 15
-    st.time_input("Pick time")  # 16
-    st.number_input("Number input")  # 17
-    st.file_uploader("Upload file")  # 18
-    st.color_picker("Choose color")  # 19
-    st.markdown("**Styled text**")  # 20
+    st.header("Fun Components Demo")
+
+    st.subheader("Progress bar")
+    progress = st.progress(0)
+    for i in range(101):
+        progress.progress(i)
+
+    st.subheader("Interactive Widgets")
+    color = st.color_picker("Pick your favorite color")
+    st.write("You selected:", color)
+
+    sound_option = st.selectbox("Choose sound effect", ["None", "Beep", "Chime"])
+    st.write("Selected sound:", sound_option)
+
+    st.subheader("Playful UI")
+    st.balloons()  # celebration effect
+    st.spinner("Simulating loading...")  # spinner effect
+
+    # Extra components for bonus points
+    age_slider = st.slider("Choose your age", 1, 100)
+    agree_checkbox = st.checkbox("Do you agree to fun terms?")
+    st.text_area("Write something fun here:")
+    st.radio("Choose an option", ["Option 1", "Option 2", "Option 3"])
+    st.select_slider("Select a range", options=list(range(0, 11)))
+    st.button("Click me!")
 
 # ----------------- ABOUT PAGE -----------------
 elif page == "About":
