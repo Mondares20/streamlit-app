@@ -34,7 +34,7 @@ elif page == "Registration":
         level = st.slider("Year Level", 1, 4)
         color = st.color_picker("Pick your favorite color") 
         reg_submit= st.form_submit_button("Register")       
-        if reg_ submit:
+        if reg_submit:
             st.success(f"Registered {email} successfully!")
 
 # ----------------- DATA PAGE -----------------
