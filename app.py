@@ -42,7 +42,7 @@ elif page == "Data":
     st.header("Student Data Table")
     
  # Realistic student data
-    data = {
+ data = {
     "Name": ["Ashley Abrantes", "Christian Basilan", "Jocel Pasko", "Ej Ellegue", "Diana Gaviola"],
     "Email": [
         "2024-200314@rtu.edu.ph",
